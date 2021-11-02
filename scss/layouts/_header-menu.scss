@@ -1,0 +1,30 @@
+.dropdown {
+    overflow: hidden;
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    #{$start-direction}: 0;
+    #{$end-direction}: 0;
+    z-index: 3;
+    background-color: $color-primary;
+    color: $color-white-base;
+
+    @include breakMin($mediumMin) {}
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include margin-h(auto);
+        padding-bottom: 0;
+        width: 100%;
+
+        @include breakMin($mediumMin) {
+            height: 100%;
+            flex-direction: row;
+            @include padding-v(0);
+            padding: 0;
+        }
+    }
+}

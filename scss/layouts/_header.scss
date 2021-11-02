@@ -1,0 +1,115 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a5a5a5;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    padding: 10px;
+
+    &__navigator {
+        border: 0;
+        background: transparent;
+        display: flex;
+        align-items: center;
+    }
+
+    // lines
+    &__lines {
+        width: 38px;
+
+        &--line {
+            background-color: $color-white-base;
+            position: relative;
+            width: 100%;
+            height: 2px;
+            border-radius: 5px;
+            @include margin-v(11.5px);
+            transform-origin: left;
+        }
+
+        &--active-line {
+            background-color: inherit;
+        }
+    }
+
+    .line-1 {
+        margin-top: 0;
+    }
+
+    .line-2 {
+        margin-bottom: 0;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+$pxNumber: 14.5px;
+
+@keyframes top-mobile {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes top-2-mobile {
+    0% {
+        transform: rotate(45deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes bottom-mobile {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes bottom-2-mobile {
+    0% {
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.active .line-1 {
+    animation: cubic-bezier(1, 0, 0, 1) .4s top-mobile forwards;
+}
+
+.not-active .line-1 {
+    animation: cubic-bezier(1, 0, 0, 1) .4s top-2-mobile forwards;
+}
+
+.active .line-2 {
+    animation: cubic-bezier(1, 0, 0, 1) .4s bottom-mobile forwards;
+}
+
+.not-active .line-2 {
+    animation: cubic-bezier(1, 0, 0, 1) .4s bottom-2-mobile forwards;
+}
+
+.active .line-m {
+    animation: ease .4s fadeOut forwards;
+}
+
+.not-active .line-m {
+    animation: ease .4s fadeIn forwards;
+}

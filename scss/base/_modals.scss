@@ -1,0 +1,240 @@
+//
+// Modals
+// --------------------------------------------------
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+// Kill the scroll on the body
+.modal-open {
+  overflow: hidden;
+
+  @include breakMin($largeMin) {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+// Container that the modal scrolls within
+body .modal {
+  // display: none;
+  // overflow: hidden;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: 1050;
+  box-shadow: 0 2px 52px 0 rgba(0, 0, 0, 0.5);
+  width: calc(100% - 30px);
+  transform: translateY(-50%);
+  text-align: $start-direction;
+  max-width: 526px;
+  margin: auto;
+  background-color: $color-white-base;
+
+  > * {
+    text-align: center;
+  }
+
+  @include breakMin($smallMin) {}
+
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+  outline: 0;
+
+  // When fading in the modal, animate it to slide down
+  &.fade .modal-dialog {
+    transform: translate(0, -25%);
+    transition: transform 0.3s ease-out;
+  }
+
+  &.in .modal-dialog {
+    transform: translate(0, 0);
+  }
+
+  &__intro {
+    background-position: center;
+    background-size: cover;
+    height: 188px;
+  }
+
+  &__body {
+    padding: 10px 30px 40px;
+
+    @include breakMin($mediumMin) {
+      padding: 20px 60px 80px;
+    }
+  }
+
+  &__exit-button {
+    position: absolute;
+    top: 0;
+    #{$end-direction}: 0;
+    background: transparent;
+    border: 0;
+    padding: 20px;
+    // opacity: 0.7;
+
+    @include breakMin($smallMin) {}
+
+    svg {
+      height: 28px;
+      width: 28px;
+    }
+
+    svg g, svg path {
+      fill: rgba($color-primary, 0.24);
+    }
+  }
+
+  &__exit-image {
+    width: 15px;
+
+    @include breakMin($smallMin) {
+      width: 20px;
+    }
+
+  }
+
+  &__header {
+    font-weight: 600;
+    margin-bottom: 22.5px;
+    font-size: 25px;
+
+    @include breakMin($smallMin) {
+      margin-bottom: 0;
+      font-size: 39px;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+
+    @include breakMin($smallMin) {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__input {
+    margin-bottom: 24px;
+    width: 100%;
+    box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.1);
+    border: 0;
+    font-size: 18px;
+    padding: 6px 13px;
+
+    @include breakMin($smallMin) {
+      font-size: 22px;
+      padding: 11px 13px;
+    }
+  }
+
+  &__submit {
+    padding: 6px 13px;
+    width: 100% !important;
+
+    @include breakMin($smallMin) {
+      padding: 11px 13px;
+    }
+  }
+}
+
+.active-modal {
+  background-color: rgba($color-primary, 0.8);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: 9;
+  overflow-y: hidden;
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+// Actual modal
+.modal-content {
+  // position: relative;
+  background-clip: padding-box;
+  background-color: $color-white-base;
+  // Remove focus outline from opened modal
+  outline: 0;
+}
+
+// Modal background
+.modal-backdrop {
+  @include fixed(0, 0, 0, 0);
+  z-index: 1040;
+  background-color: rgba($color-black-base, .6);
+
+  // Fade for backdrop
+  &.fade {
+    opacity: 0;
+  }
+
+  &.in {
+    opacity: 1;
+  }
+}
+
+// Scale up the modal
+@media (min-width: $smallMin) {
+
+  // Automatically set modal's width for larger viewports
+  .modal-dialog {
+    margin: 30px auto;
+  }
+
+  .modal-sm {
+    width: 530px;
+  }
+}
+
+
+@media (min-width: $mediumMin) {
+  .modal-lg {
+    width: $mediumMax;
+  }
+}
+
+.modal {
+  .modal-dialog {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%) !important;
+
+    @include breakMin($smallMin) {
+      width: 40%;
+      transform: translate(-50%, -50%) !important;
+      left: 50%;
+    }
+  }
+
+  .modal-content {
+
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+// 
+// Global css classes for this project ONLY
+// 
+.text-wrapper {
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.3px;
+
+    @include breakMin($mediumMin) {
+        font-size: 17px;
+        line-height: 1.65;
+        font-weight: 500;
+        letter-spacing: normal;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center;
+        letter-spacing: -0.3px;
+
+        @include breakMin($mediumMin) {
+            text-align: $start-direction;
+            font-size: 17px;
+            letter-spacing: normal;
+        }
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.absolute-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transition: all .5s ease-in-out;
+}
+
+
+.body--menu {
+    overflow-y: hidden;
+}
+
+.single-text-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body {
+    // added in this project ONLY
+
+    // Original
+    position: relative;
+    @include size(100%, auto);
+    color: $color-primary;
+    background-color: $color-white-base;
+    direction: $direction;
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: $line-height-base;
+    overflow: visible;
+    overflow-x: hidden;
+
+    @include breakMin($smallMin) {
+        font-size: $font-size-base;
+    }
+
+    @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+        font-variant-ligatures: none;
+    }
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    // 
+    border: 0;
+    background: none;
+}
+
+// Links
+a {
+    color: inherit;
+    transition: color .2s;
+    text-decoration: none;
+    cursor: none;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        // text-decoration: underline;
+    }
+}
+
+// Only display content to screen readers
+//
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+[role="button"] {
+    cursor: pointer;
+}
+
+
+b,
+strong {
+    font-weight: 700;
+}
+
+picture {
+    display: block;
+}
+
+.center-block {
+    display: block;
+    @include margin-h(auto);
+}
+
+p {
+    line-height: 1.4;
+
+    @include breakMin($smallMin) {
+        line-height: 1.4;
+    }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+    @include padding-h(17px);
+    transition: 0.5s ease;
+
+    @include breakMin($smallMin) {
+        max-width: $smallMin;
+    }
+
+    @include breakMin($mediumMin) {
+        max-width: $mediumMin;
+    }
+
+    @include breakMin($largeMin) {
+        max-width: $largeMin;
+    }
+
+    @include breakMin($xlargeMin) {
+        width: 100%;
+    }
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.none {
+    display: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.mobile {
+    @include breakMin($mediumMin) {
+        display: none !important;
+    }
+}
+
+.desktop {
+    display: none !important;
+
+    @include breakMin($mediumMin) {
+        display: inherit !important;
+    }
+}

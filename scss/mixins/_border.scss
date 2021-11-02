@@ -1,0 +1,36 @@
+// Single side border-radius
+
+@mixin border-start($border...) {
+  border-#{$start-direction}: $border;
+}
+
+@mixin border-end($border...) {
+  border-#{$end-direction}: $border;
+}
+
+@mixin border-start-color($color) {
+  border-#{$start-direction}-color: $color;
+}
+
+@mixin border-end-color($color) {
+  border-#{$end-direction}-color: $color;
+}
+
+@mixin border-before($border...) {
+  border-top: $border;
+}
+
+@mixin border-after($border...) {
+  border-bottom: $border;
+}
+
+@mixin border-h($border...) {
+  @include border-start($border);
+  @include border-end($border);
+}
+
+@mixin border-v($border...) {
+  @include border-before($border);
+  @include border-after($border);
+}
+

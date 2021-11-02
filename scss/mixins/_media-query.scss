@@ -1,0 +1,37 @@
+@function breakpoint-infix($size) {
+  @return -#{$size};
+}
+
+@mixin breakMin($args...) {
+  @if length($args) == 1 {
+    @if( nth($args, 1) != 0 ) {
+      @media (min-width: nth($args, 1)) {
+        @content;
+      }
+    }@else {
+      @content;
+    }
+  } @else {
+    @media (min-width: nth($args, 1))
+    and (max-width: nth($args, 2)) {
+      @content;
+    }
+  }
+}
+
+@mixin breakMax($args...) {
+  @media (max-width: nth($args, 1)) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up($breakpoint) {
+  @if( $breakpoint != 0 ) {
+    @include breakMin($breakpoint) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}

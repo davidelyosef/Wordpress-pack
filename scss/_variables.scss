@@ -1,0 +1,153 @@
+//== Colors
+//
+
+// 
+// For this project only
+// 
+
+$transparent-black: rgba(0,0,0,0.3);
+$transparent-white: rgba(255,255,255,0.16);
+$color-primary:        #02283f !default;
+
+//## Brand colors for use across project.
+
+$color-yellow:         #f7c13a !default;
+$color-lighter-cyan:   #2196f3a3 !default;
+$color-white-base:     #ffffff !default;
+$color-black-base:     #000000 !default;
+$color-pink:           #ec1077 !default;
+$color-green:          #748d24 !default;
+$color-cian:           #64c2d7 !default;
+$color-cian-light:     #3b96c3 !default;
+$color-cian-dark:      #3a7d95 !default;
+$color-dark-blue:      #062641 !default;
+$color-text:           #000 !default;
+$color-light-grey:     #e3e3e3 !default;
+$color-grey:           #747474 !default;
+$color-light-bg:       #faf8fa !default;
+
+
+$site-colors: (
+ 'white'         :   $color-white-base,
+ 'black'         :   $color-black-base,
+ 'primary'       :   $color-primary
+) !default;
+
+$border-color-default: #e5e5e5 !default;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               $color-white-base !default;
+//** Global text color on `<body>`.
+$text-color:            $color-black-base !default;
+
+//** Global textual link color.
+$link-color:            $color-text !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($color-text, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$fonts-path: '../../fonts' !default;
+$font-family-base: 'Montserrat', 'Arial', sans-serif !default;
+@if($is_rtl) {
+  $font-family-base: 'Montserrat', 'Arial', sans-serif !default;
+}
+
+$font-size-base:          1.6rem !default; // ~20px
+$font-size-large:         2.2rem !default;
+$font-size-small:         ($font-size-base * 0.85) !default; // ~15px
+
+$font-size-h1:            ($font-size-base * 3.3) !default; //
+$font-size-h2:            ($font-size-base * 1.6) !default;
+$font-size-h2-large:      3.8rem !default; // 40px
+$font-size-h3:            floor(($font-size-base * 1.4)) !default;
+$font-size-h3-large:      floor(($font-size-base * 1.7)) !default;
+$font-size-h4:            floor(($font-size-base * 1.25)) !default;
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            floor(($font-size-base * 0.85)) !default;
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.389 !default;
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit !default;
+$headings-font-weight:   500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;
+
+$font-weight-light:   300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-bold:    700 !default;
+$font-weight-black:   900 !default;
+
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+$xsmaillMax:  479px !default;
+$smallMax:	  767px !default;
+$mediumMax:	  991px !default;
+$largeMax:	  1199px !default;
+$xlargeMax:   1599px !default;
+
+$xsmallMin: $xsmaillMax + 1px !default;
+$smallMin:	$smallMax + 1px !default;
+$mediumMin: $mediumMax + 1px !default;
+$largeMin:  $largeMax + 1px !default;
+$xlargeMin: $xlargeMax + 1px !default;
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+$col-1: 8.33333333%   !default;
+$col-2: 16.66666667%  !default;
+$col-3: 25%           !default;
+$col-4: 33.33333333%  !default;
+$col-5: 41.66666667%  !default;
+$col-6: 50%           !default;
+$col-7: 58.33333333%  !default;
+$col-8: 66.66666667%  !default;
+$col-9: 75%           !default;
+$col-10: 83.33333333% !default;
+$col-11: 91.66666667% !default;
+$col-12: 100%         !default;
+
+$grid-breakpoints: (
+    'xs': 0,
+    'sm': $smallMin,
+    'md': $mediumMin,
+    'lg': $largeMin,
+    'xl': $xlargeMin
+) !default;
+
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         30px !default;
+$site-gap:                  floor( $grid-gutter-width / 2 ) !default;
+$site-container-max-width:  1230px !default;
+
+//== Navbar
+//
+//##
+
+$site-navbar-height-small: 50px !default;
+$site-navbar-height-large: 72px !default; // The site navbar height + progress-bar
+$site-navbar-cta-height: 8px !default; // The site navbar height + progress-bar
+
+$site-navbar-height-with-cta-height: $site-navbar-height-large + $site-navbar-cta-height !default;
+
+
+$site-layer-z-index: 2!default; // The site navbar height + progress-bar

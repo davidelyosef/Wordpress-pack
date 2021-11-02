@@ -1,0 +1,28 @@
+@mixin margin-v( $margin... ) {
+  @if length($margin) == 1 {
+    margin-top: nth($margin, 1);
+    margin-bottom: nth($margin, 1);
+  } @else {
+    margin-top: nth($margin, 1);
+    margin-bottom: nth($margin, 2);
+  }
+}
+
+@mixin margin-start( $margin ) {
+  margin-#{$start-direction}: $margin;
+}
+
+@mixin margin-end( $margin ) {
+  margin-#{$end-direction}: $margin;
+}
+
+@mixin margin-h( $margin... ) {
+  @if length($margin) == 1 {
+    @include margin-start( nth($margin, 1) );
+    @include margin-end( nth($margin, 1) );
+  } @else {
+    @include margin-start( nth($margin, 1) );
+    @include margin-end( nth($margin, 2) );
+  }
+}
+

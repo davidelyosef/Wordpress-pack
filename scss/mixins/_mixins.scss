@@ -1,0 +1,77 @@
+@import "media-query";
+
+@mixin rtl() {
+  @if($is_rtl) {
+    @content
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+
+  .#{$name} {
+    -webkit-animation-name: #{$name};
+    animation-name: #{$name};
+  }
+
+}
+
+@function icon($character) {
+  @return unquote('\"')+unquote(str-insert($character, '\\', 1))+unquote('\"');
+}
+
+@mixin font-awesome-default-settings($font-weight: 300, $font-family: 'Font Awesome 5 Pro') {
+  font-family: '#{$font-family}';
+  font-weight: $font-weight;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+@mixin font-awesome-settings($content, $font-weight: 300, $font-family: 'Font Awesome 5 Pro') {
+  @include font-awesome-default-settings($font-weight, $font-family);
+  content: icon($content);
+}
+
+@mixin simple-line-icons-settings($icon: '') {
+  font-family: simple-line-icons;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: icon($icon);
+}
+
+
+@mixin sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

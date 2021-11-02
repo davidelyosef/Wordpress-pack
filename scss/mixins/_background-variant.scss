@@ -1,0 +1,27 @@
+// Contextual backgrounds
+
+// [converter] $parent hack
+@mixin bg-variant($parent, $color) {
+  #{$parent} {
+    background-color: $color;
+  }
+  a#{$parent}:hover,
+  a#{$parent}:focus {
+    background-color: darken($color, 10%);
+  }
+}
+
+@mixin background-image-default {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@mixin background-attachment( $attachment:fixed, $min-width: $mediumMin ) {
+  @include breakMin($min-width) {
+    background-attachment: $attachment;
+  }
+}

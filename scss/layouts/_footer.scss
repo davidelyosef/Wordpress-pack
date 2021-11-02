@@ -1,0 +1,35 @@
+.footer {
+    background-color: $color-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: $color-white-base;
+    padding: 20px;
+
+    @include breakMin($mediumMin) {
+        font-size: 14px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__copyrights {
+        font-weight: 100;
+        text-align: center;
+    }
+
+    &__credit {
+        font-weight: 100;
+
+        @include breakMin($mediumMin + 10) {
+            text-align: $end-direction;
+            order: 2;
+        }
+    }
+
+    &__menu {
+        @include breakMin($mediumMin) {
+            order: 1;
+        }
+    }
+}

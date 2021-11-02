@@ -1,0 +1,17 @@
+@include breakMin($smallMin) {
+    .fade-hover {
+        transition: .5s ease-in-out;
+        
+        &:hover {
+            opacity: .7;
+        }
+    }
+
+    .primary-color-hover {
+        transition: .5s ease-in-out;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}

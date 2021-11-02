@@ -1,0 +1,28 @@
+@mixin padding-v( $padding... ) {
+  @if length($padding) == 1 {
+    padding-top: nth($padding, 1);
+    padding-bottom: nth($padding, 1);
+  } @else {
+    padding-top: nth($padding, 1);
+    padding-bottom: nth($padding, 2);
+  }
+}
+
+@mixin padding-start( $padding ) {
+  padding-#{$start-direction}: $padding;
+}
+
+@mixin padding-end( $padding ) {
+  padding-#{$end-direction}: $padding;
+}
+
+@mixin padding-h( $padding... ) {
+  @if length($padding) == 1 {
+    @include padding-start( nth($padding, 1) );
+    @include padding-end( nth($padding, 1) );
+  } @else {
+    @include padding-start( nth($padding, 1) );
+    @include padding-end( nth($padding, 2) );
+  }
+}
+
