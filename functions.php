@@ -1,5 +1,8 @@
 <?php
 
+require_once 'theme-settings-example.php';
+require_once 'class-theme.php';
+
 function is_acf_exists()
 {
     return class_exists('ACF');
@@ -181,6 +184,14 @@ function get_url()
     $url .= $_SERVER['REQUEST_URI'];
 
     return $url;
+}
+
+function is_rtl() {
+	global $wp_locale;
+	if ( ! ( $wp_locale instanceof WP_Locale ) ) {
+		return false;
+	}
+	return $wp_locale->is_rtl();
 }
 
 /**
