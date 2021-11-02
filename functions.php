@@ -165,6 +165,36 @@ function get_paged_posts_type($post_types) {
     return get_posts($args);
 }
 
+/**
+ * @return string
+ */
+function get_url()
+{
+    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+        $url = "https://";
+    else
+        $url = "http://";
+    // Append the host(domain name, ip) to the URL.   
+    $url .= $_SERVER['HTTP_HOST'];
+
+    // Append the requested resource location to the URL   
+    $url .= $_SERVER['REQUEST_URI'];
+
+    return $url;
+}
+
+/**
+ * @return string[]
+ */
+function get_alpha_letters()
+{
+    $alphas = range('A', 'Z');
+    if (is_rtl())
+        $alphas = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת'];
+
+    return $alphas;
+}
+
 $images_path = get_template_directory_uri() . '/assets/images';
 
 // Debugging
